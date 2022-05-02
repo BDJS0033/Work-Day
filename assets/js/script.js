@@ -2,14 +2,14 @@
 var currentDay = moment().format('dddd, MMMM Do YYYY');
 $("#currentDay").append(currentDay);
 
-//variable to indicate past, present, and furture
-var timeZone = $(".row textarea[type=text]");
+//Variable to indicate past, present, and furture
+var timeZone = $("textarea");
 
 $(timeZone).each(function () {
     var workDay = moment().format("HH");
     var hourData = parseInt($(this).attr("id"));
-
-    if (hourData == workDay) {
+//attributes for background color
+    if (hourData < workDay) {
         $(this).addClass("past");
     } else if (hourData === workDay) {
         $(this).addClass("present");
@@ -17,7 +17,6 @@ $(timeZone).each(function () {
         $(this).addClass("future");
     }
 });
-
 
 // Save textarea events to localStorage
 $(".saveBtn").click(function (event) {
@@ -27,9 +26,11 @@ $(".saveBtn").click(function (event) {
 var eventText = $(this).attr("hour");
 var eventTime = $(this).prev().val();
 
-    localStorage.setItem(eventText, JSON.stringify(eventTime));
+localStorage.setItem(eventText, JSON.stringify(eventTime));
+
 });
 
+//return the value 
 $("#9").val(localStorage.getItem("9"));
 $("#10").val(localStorage.getItem("10"));
 $("#11").val(localStorage.getItem("11"));
