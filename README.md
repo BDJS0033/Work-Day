@@ -1,13 +1,12 @@
 # Third-Party APIs: Work Day Scheduler
 
 ## Description
-________
 
 This weeks challenge is to create a calendar application that allows a user to save events for each hour of the day.
 
 
 ## User Story
-____________
+
 ```
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
@@ -15,7 +14,7 @@ SO THAT I can manage my time effectively
 ```
 
 ## Acceptance Criteria
-___
+
 ```
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
@@ -33,7 +32,6 @@ THEN the saved events persist
 ```
 
 ## Git Hub
-___
 
 Please find the URL for the completed challenge: https://github.com/BDJS0033/Work-Day
 
