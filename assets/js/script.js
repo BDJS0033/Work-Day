@@ -6,10 +6,10 @@ $("#currentDay").append(currentDay);
 var timeZone = $(".row textarea[type=text]");
 
 $(timeZone).each(function () {
-    var workDay = moment().format("k");
+    var workDay = moment().format("HH");
     var hourData = parseInt($(this).attr("id"));
 
-    if (hourData < workDay) {
+    if (hourData == workDay) {
         $(this).addClass("past");
     } else if (hourData === workDay) {
         $(this).addClass("present");
@@ -18,13 +18,14 @@ $(timeZone).each(function () {
     }
 });
 
+
 // Save textarea events to localStorage
 $(".saveBtn").click(function (event) {
     event.preventDefault();
 
-    // get textarea values
-    var eventText = $(this).attr("hour");
-    var eventTime = $(this).prev().val();
+// get textarea values
+var eventText = $(this).attr("hour");
+var eventTime = $(this).prev().val();
 
     localStorage.setItem(eventText, JSON.stringify(eventTime));
 });
