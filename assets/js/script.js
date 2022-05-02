@@ -1,31 +1,40 @@
-//Setting up variable to showcase current date on heading
+// Variable to showcase current date on jumbotron
 var currentDay = moment().format('dddd, MMMM Do YYYY');
 $("#currentDay").append(currentDay);
 
-//Setting up past, present, and furture
-// var timeZone = $(".row textarea[type=text]");
+//variable to indicate past, present, and furture
+var timeZone = $(".row textarea[type=text]");
 
-//JQuery Attributes used for CSS/HTML elements for design without altering HTML.
-// workDay.forEach(function(timeZone) {
-//     // creates row
-//     var timeZone = $("<form>")
-//         .addClass("row");
+$(timeZone).each(function () {
+    var workDay = moment().format("k");
+    var hourData = parseInt($(this).attr("id"));
 
-//     $(".container").append(timeZone);
+    if (hourData < workDay) {
+        $(this).addClass("past");
+    } else if (hourData === workDay) {
+        $(this).addClass("present");
+    } else if (hourData > workDay) {
+        $(this).addClass("future");
+    }
+});
 
-// });
+// Save textarea events to localStorage
+$(".saveBtn").click(function (event) {
+    event.preventDefault();
 
+    // get textarea values
+    var eventText = $(this).attr("hour");
+    var eventTime = $(this).prev().val();
 
- //Creating Schedule Data by inputting var/function for hour
-//  var timeZone = $("<div>")
-//  .addClass("col-lg-10 description p-0")
-// var timeZone = $("<textarea>");
-// timeZone.attr("id", hour.id);
-// //compare time to current time - color codes
-//  if (hour.time == moment().format("HH")) {
-//     timeZone.addClass("present")
-//  } else if (hour.time < moment().format("HH")) {
-//     timeZone.addClass("past")
-//  } else if (hour.time > moment().format("HH")) {
-//     timeZone.addClass("future")
-// };
+    localStorage.setItem(eventText, JSON.stringify(eventTime));
+});
+
+$("#9").val(localStorage.getItem("9"));
+$("#10").val(localStorage.getItem("10"));
+$("#11").val(localStorage.getItem("11"));
+$("#12").val(localStorage.getItem("12"));
+$("#1").val(localStorage.getItem("1"));
+$("#2").val(localStorage.getItem("2"));
+$("#3").val(localStorage.getItem("3"));
+$("#4").val(localStorage.getItem("4"));
+$("#5").val(localStorage.getItem("5"));
