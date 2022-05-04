@@ -9,6 +9,9 @@ $(timeZone).each(function () {
     var workDay = moment().format("HH");
     var hourData = parseInt($(this).attr("id"));
 //attributes for background color
+//is greater than applies to past
+//is equal to applies to present
+//is less than applies to future
     if (hourData < workDay) {
         $(this).addClass("past");
     } else if (hourData === workDay) {
