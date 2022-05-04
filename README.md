@@ -31,6 +31,9 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
+![work-day](https://user-images.githubusercontent.com/82056351/166684475-3cc5b970-6645-4ff0-a024-159c72acf197.jpg)
+
+
 ## Git Hub
 
 Please find the URL for the completed challenge: https://github.com/BDJS0033/Work-Day
